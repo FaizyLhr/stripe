@@ -1,0 +1,23 @@
+<!-- <button (click)="checkout()">
+    GO TO CHECKOUT
+</button> -->
+
+<!-- <div [formGroup]="stripeTest">
+    <input placeholder="name" formControlName="name" />
+    <input placeholder="amount" type="number" formControlName="amount" />
+    <button [disabled]="stripeTest.invalid" (click)="createPayment()">Add Payment</button>
+    <button [disabled]="flag" (click)="pay()">PAY</button>
+</div> -->
+
+
+
+<!-- Server side Implementation -->
+<form [formGroup]="serverStripe" id="payment-form">
+    <div class="form-row">
+        <input placeholder="amount" type="number" formControlName="amount" />
+        <input type="text" placeholder="name" formControlName="name" />
+        <input type="text" placeholder="description" formControlName="description" />
+    </div>
+    <button (click)="makePayment()">Charge</button>
+
+</form>
