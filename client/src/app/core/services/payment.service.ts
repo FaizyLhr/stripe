@@ -28,4 +28,8 @@ export class PaymentService {
   makePayment(token: string) {
     return this.apiService.post('/payment/payments', token);
   }
+
+  pay(data: any) {
+    return this.apiService.post('/payment/pay', data);
+  }
 }

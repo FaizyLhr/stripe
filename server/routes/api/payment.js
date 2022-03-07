@@ -61,4 +61,23 @@ router.post("/payments", async (req, res, next) => {
 // 		})
 // 		.then((charge) => {
 // 			res.send("Success"); //
+
+// Accept Payment through Live Account
+router.post("/pay", (req, res, next) => {
+	console.log("req.body", req.body);
+	stripe.charges.create(
+		{
+			amount: req.body.amount * 100,
+			currency: "usd",
+			description: req.body.description,
+			source: req.body.token.id,
+		},
+		(err, res) => {
+			if (err) {
+				return next(new BadRequestResponse(err));
+			}
+			return next(new OkResponse(res));
+		}
+	);
+});
 module.exports = router;
